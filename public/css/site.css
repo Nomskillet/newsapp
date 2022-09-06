@@ -5,5 +5,30 @@
 }
 
 body{
-    background-color: gray;
+    background-color: #6d3200;
+    color: #f0d1a0;
+   
+}
+
+
+.bread-image{
+    display: flex;
+    height: 30%;
+    width: 50%;
+    top: 25%;
+    padding: 5%;
+ 
+}
+
+
+nav{
+    background-color: #f0d1a0;
+}
+
+
+.slice-display{
+    display: flex;
+    left: 20%;
+    top: 40%;
+    
 }

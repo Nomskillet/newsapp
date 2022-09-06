@@ -87,6 +87,10 @@ app.post('/register', async (req, res) => {
 //     })
 // })
 
+app.get('/all-articles', (req, res)=>{
+    res.render('all-articles')
+})
+
 app.get('/register', (req, res)=>{
     res.render('register')
 })
@@ -100,6 +104,10 @@ app.get('/users/add-article', (req, res)=>{
 
     res.render('add-article')
 
+})
+
+app.get('/', (req,res)=>{
+    res.render('index')
 })
 
 
@@ -143,17 +151,25 @@ app.post('/users/add-article', async (req, res)=>{
 })
 
 
-app.post('/users/update-article', (req, res)=>{
+app.post('/users/update-article/:articleid', async (req, res)=>{
 
+try {
+        let title = req.body.title
+        let description = req.body.description
+        let articleId = req.body.articleId
+        let result = await db.articles.update({title: title, body: description, userID: userID})
 
-    let title = req.body.title
-    let description = req.body.description
-    let articleId = req.body.articleId
-
-    db.none ('UPDATE articles SET title = $1, body = $2 WHERE articleid = $3', [title,description,articleId])
-    .then(()=>{
+        
         res.redirect('/users/articles')
-    })
+} catch (error) {
+    console.log(error);
+}
+ 
+
+    // db.none ('UPDATE articles SET title = $1, body = $2 WHERE articleid = $3', [title,description,articleId])
+    // .then(()=>{
+      
+    // })
 
 })
 

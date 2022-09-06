@@ -15,63 +15,39 @@
 </head>
 <body>
 
-    <h1>my articles</h1>
+    <h1 class="text-center">BREADIT</h1>
 
     <div class="container">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">News App</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/users/add-articles">Add Articles</a>
-                    <a class="nav-item nav-link" href="#">View all news</a>
-
+        <div class="container">
+        
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Breadit</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+                        <a class="nav-item nav-link" href="/register">Register</a>
+                        <a class="nav-item nav-link" href="/login">Login</a>
+                        <a class="nav-item nav-link" href="/users/add-article">Add Slices</a>
+                        <a class="nav-item nav-link" href="/users/articles">All Slices</a>
+            
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
 
-        <div class="list-group">
-
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Introduction</h5>
-
-            </div>
-
-            <% articles.forEach(article => { %>
-            <p class="mb-1"><%= article.name %> </p>
-
-            <div class="articles-action-button">
-            
-            <a href="/users/articles/edit/<%= article.id %> ">
-                <button type="button" class="btn btn-primary">Edit</button>
-            
-            </a>
-            
-            <form action="/users/delete-article" method="POST">
-            
-            
-                <input type="hidden" name="articleId" value="<%= article.id %> " />
-            
-                <button type="submit" class="btn btn-danger">Delete</button>
-            
-            
-            </form>
-            <% }) %>
-            </div>
-
-        </div>
+       
 
 
 
     </div>
 
 
-
+<div class="bread-image">
+ <img src="https://images.unsplash.com/photo-1592029780368-c1fff15bcfd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjBicmVhZHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="">
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
