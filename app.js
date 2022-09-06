@@ -87,9 +87,26 @@ app.post('/register', async (req, res) => {
 //     })
 // })
 
-app.get('/all-articles', (req, res)=>{
-    res.render('all-articles')
-})
+app.get('/all-articles', async (req, res)=>{
+    try{
+        //let userID = req.session.user.userID
+        // console.log('req.session.user',req.session.user);
+        let results = await db.articles.findAll()
+      
+            console.log('results', results);
+            res.render('all-articles', {articles: results}) 
+        
+    }
+    catch(error){
+    
+        console.log(error);
+    
+    }
+    
+    
+    
+       
+    })
 
 app.get('/register', (req, res)=>{
     res.render('register')
@@ -116,10 +133,13 @@ app.get('/users/delete-article/:articleId', async (req,res) =>{
     try {
         
         
-        let articleId = req.params.articleId
-        console.log('articleId', articleId);
+        let articleId = parseInt(req.params.articleId)
+        console.log('articleId', typeof articleId);
         let result = await db.articles.destroy({where: {id: articleId}})
-          res.redirect('articles')
+
+     
+        res.redirect('/users/articles')
+       
 
 
     } 
@@ -151,13 +171,13 @@ app.post('/users/add-article', async (req, res)=>{
 })
 
 
-app.post('/users/update-article/:articleid', async (req, res)=>{
+app.post('/users/update-article', async (req, res)=>{
 
 try {
         let title = req.body.title
         let description = req.body.description
         let articleId = req.body.articleId
-        let result = await db.articles.update({title: title, body: description, userID: userID})
+        let result = await db.articles.update({title: title, body: description}, {where: {id: articleId}})
 
         
         res.redirect('/users/articles')

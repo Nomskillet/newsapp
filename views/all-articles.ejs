@@ -30,14 +30,14 @@
                     <a class="nav-item nav-link" href="/register">Register</a>
                     <a class="nav-item nav-link" href="/login">Login</a>
                     <a class="nav-item nav-link" href="/users/add-article">Add Slices</a>
-                    <a class="nav-item nav-link" href="/users/articles">All Slices</a>
+                    <a class="nav-item nav-link" href="/all-articles">All Slices</a>
         
                 </div>
             </div>
         </nav>
 
 
-        <div class="list-group justify-content-center">
+        <div class="list-group text-center">
 
             <div class="d-flex w-100 justify-content-between">
            
@@ -45,18 +45,15 @@
             </div>
 
             <% articles.forEach(article => { %>
-            <p class="mb-1"><%= article.title %> </p>
+            <p class="mb-1 text-centered"><%= article.title %> </p>
 
             <div>
                 <h5><%= article.body %> </h5>
             </div>
 
-            <div class="articles-action-button">
+            <div class="articles-action-button p-5">
             
-            <a href="/users/articles/edit/<%= article.id %> ">
-                <button type="button" class="btn btn-primary">Edit</button>
-            
-            </a>
+         
             
                 <!-- <form action="/users/delete-article" method="POST">
             
@@ -68,8 +65,7 @@
             
                 </form> -->
 
-                <a href="/users/delete-article/2">
-                    <button type="button" class="btn btn-primary">delete</button>
+              
 
             </div>
             <% }) %>

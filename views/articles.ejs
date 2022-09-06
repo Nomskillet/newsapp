@@ -30,16 +30,16 @@
                     <a class="nav-item nav-link" href="/register">Register</a>
                     <a class="nav-item nav-link" href="/login">Login</a>
                     <a class="nav-item nav-link" href="/users/add-article">Add Slices</a>
-                    <a class="nav-item nav-link" href="/users/articles">All Slices</a>
+                    <a class="nav-item nav-link" href="/all-articles">All Slices</a>
         
                 </div>
             </div>
         </nav>
 
 
-        <div class="list-group slice-display text-centered">
+        <div class="list-group slice-display">
 
-            <div class="d-flex w-100 justify-content-between slice-display text-centered">
+            <div class="d-flex w-100 justify-content-between slice-display text-center">
            
 
             </div>
@@ -68,9 +68,9 @@
             
                 </form> -->
 
-                <a href="/users/delete-article/2">
+                <p href="/users/delete-article/<%= article.id %> ">
                     <button type="button" class="btn btn-primary">delete</button>
-
+                </p>
             </div>
             <% }) %>
             
